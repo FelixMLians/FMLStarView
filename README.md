@@ -26,10 +26,12 @@ Just drag the FMLStarView folder into your project.And change the star images as
 
 
 _starView = [[FMLStarView alloc] initWithFrame:CGRectMake(0, 0, 150, 25)
-                                                   numberOfStars:numberOfStars
-                                                      isTouchable:YES index:index];
+                                         numberOfStars:numberOfStars
+                                           isTouchable:YES
+                                                 index:index];
         _starView.currentScore = currentScore;
         _starView.totalScore = totalScore;
+        _starView.isFullStarLimited = isFullStarLimited;
         _starView.delegate = controller;
         [self addSubview:_starView];
         
