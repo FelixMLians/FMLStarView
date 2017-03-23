@@ -60,8 +60,8 @@ static NSString * const kStarImageStyleHighlight = @"star_yellow.png";
     else {
         _currentScore = self.currentScore;
     }
-    
-    CGFloat scorePercent = self.currentScore / self.totalScore;
+    CGFloat scorePercent = 0.0f;
+    scorePercent = self.currentScore / self.totalScore;
     if (self.isFullStarLimited == YES) {
         scorePercent = [self changeToCompleteStar:scorePercent];
     }
@@ -117,7 +117,10 @@ static NSString * const kStarImageStyleHighlight = @"star_yellow.png";
 }
 
 - (CGFloat)changeToCompleteStar:(CGFloat)percent {
-    if (percent <= 0.2) {
+    if (percent <= 0.08) {
+        percent = 0.0;
+    }
+    else if (percent > 0.08 &&percent <= 0.2) {
         percent = 0.2;
     }
     else if (percent > 0.2 && percent <= 0.4) {
@@ -134,6 +137,8 @@ static NSString * const kStarImageStyleHighlight = @"star_yellow.png";
     }
     return percent;
 }
+
+
 
 #pragma mark - Accessor
 
